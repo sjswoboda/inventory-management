@@ -8,6 +8,8 @@ To make things more interesting, some of our suppliers operate in a different cu
 Things we know:
 * An invoice has exactly one supplier; but a supplier may have many invoices.
 * An invoice has multiple items.
+
+
 * An invoice may have a discount, a shipping cost.
 * An invoice has a date of purchase, date item was shipped, and date item was recieved.
 * An invoice has bill at time of purchase and an amount remitted.

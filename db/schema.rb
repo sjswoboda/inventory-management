@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311120605) do
+ActiveRecord::Schema.define(version: 20180311145615) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 20180311120605) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "invoice_transaction_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_invoice_transaction_types_on_name", unique: true
+  end
+
+  create_table "invoice_transactions", force: :cascade do |t|
+    t.integer "invoice_id", null: false
+    t.integer "invoice_transaction_type_id", null: false
+    t.decimal "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "posted_date", default: "2018-03-11", null: false
+    t.index ["invoice_id"], name: "index_invoice_transactions_on_invoice_id"
+    t.index ["invoice_transaction_type_id"], name: "index_invoice_transactions_on_invoice_transaction_type_id"
+  end
+
   create_table "invoices", force: :cascade do |t|
     t.integer "supplier_id", null: false
     t.string "order_number"
@@ -33,7 +51,6 @@ ActiveRecord::Schema.define(version: 20180311120605) do
     t.decimal "discount_amount", default: "0.0"
     t.decimal "shipping_amount", default: "0.0"
     t.decimal "invoiced_amount", null: false
-    t.decimal "billed_amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["supplier_id"], name: "index_invoices_on_supplier_id"
