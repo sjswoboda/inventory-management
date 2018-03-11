@@ -11,8 +11,8 @@ Things we know:
 * An invoice may have a discount, a shipping cost.
 * An invoice has a date of purchase, date item was shipped, and date item was recieved.
 * An invoice has bill at time of purchase and an amount remitted.
-* An invoice has line items which detail the quantity purchased
-* A line item can have one or more items - i.e. if a 'box' of 'assorted' items were purchased.
-* An item has a total cost which is the sum of base cost, shipping, discount, currency conversion cost.
+* An invoice has `LineItem`s which detail the quantity purchased
+* A `LineItem`can have one or more items - i.e. if a 'box' of 'assorted' items were purchased.
+* A `LineItem` has a total cost which is the sum of base cost, shipping, discount, currency conversion cost.
 * An item's quality may vary by supplier, so an item must be tracked by its supplier+invoice but still be related to the 'base' item for `Inventory` purposes.
 * An item has a name, a description, and a `Classification` which determines the type of item it is.

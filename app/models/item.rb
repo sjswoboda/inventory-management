@@ -1,3 +1,4 @@
 class Item < ApplicationRecord
-    has_one :classification
+    belongs_to :classification
+    belongs_to :brand
 end
