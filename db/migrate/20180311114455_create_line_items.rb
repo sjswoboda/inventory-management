@@ -1,7 +1,7 @@
 class CreateLineItems < ActiveRecord::Migration[5.1]
   def change
     create_table :line_items do |t|
-      t.references :invoice, index: true, null: false
+      t.references :invoice, index: true, null: false, foreign_key: true
       t.string :description
       t.integer :quantity, null: false
       t.integer :lot_size, default: 1
@@ -11,6 +11,5 @@ class CreateLineItems < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
-    add_foreign_key :line_items, :invoices
   end
 end

@@ -10,18 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311145615) do
+ActiveRecord::Schema.define(version: 20180315004325) do
+
+  create_table "attributes", force: :cascade do |t|
+    t.string "name", null: false
+    t.index ["name"], name: "index_attributes_on_name"
+  end
 
   create_table "brands", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_brands_on_name", unique: true
   end
 
   create_table "classifications", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_classifications_on_name", unique: true
   end
 
   create_table "invoice_transaction_types", force: :cascade do |t|
@@ -35,9 +42,9 @@ ActiveRecord::Schema.define(version: 20180311145615) do
     t.integer "invoice_id", null: false
     t.integer "invoice_transaction_type_id", null: false
     t.decimal "amount", null: false
+    t.date "posted_date", default: "2018-03-14", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "posted_date", default: "2018-03-11", null: false
     t.index ["invoice_id"], name: "index_invoice_transactions_on_invoice_id"
     t.index ["invoice_transaction_type_id"], name: "index_invoice_transactions_on_invoice_transaction_type_id"
   end
@@ -56,15 +63,24 @@ ActiveRecord::Schema.define(version: 20180311145615) do
     t.index ["supplier_id"], name: "index_invoices_on_supplier_id"
   end
 
+  create_table "item_variations", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "variation_set_id", null: false
+    t.string "name"
+    t.boolean "is_default", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_variations_on_item_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.integer "classification_id"
+    t.integer "brands_id"
     t.string "name", null: false
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "brand_id"
-    t.string "style"
-    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["brands_id"], name: "index_items_on_brands_id"
     t.index ["classification_id"], name: "index_items_on_classification_id"
   end
 
@@ -82,9 +98,18 @@ ActiveRecord::Schema.define(version: 20180311145615) do
   end
 
   create_table "suppliers", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_suppliers_on_name", unique: true
+  end
+
+  create_table "variation_attributes", id: false, force: :cascade do |t|
+    t.integer "variation_set_id", null: false
+    t.integer "attribute_id", null: false
+    t.string "value", null: false
+    t.index ["attribute_id"], name: "index_variation_attributes_on_attribute_id"
+    t.index ["variation_set_id"], name: "index_variation_attributes_on_variation_set_id"
   end
 
 end
