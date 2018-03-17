@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :item_variations
+  resources :variation_attributes
+  resources :attributes
   resources :invoice_transaction_types
   resources :invoice_transactions
   resources :brands
