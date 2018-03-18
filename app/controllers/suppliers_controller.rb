@@ -1,9 +1,9 @@
 class SuppliersController < ApplicationController
-  before_action :set_supplier, only: [:show, :update, :destroy]
+  before_action :set_supplier, only: [:show, :update]
 
   # GET /suppliers
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.all.order(created_at: :desc).select(:id, :name)
 
     render json: @suppliers
   end
@@ -33,11 +33,6 @@ class SuppliersController < ApplicationController
     end
   end
 
-  # DELETE /suppliers/1
-  def destroy
-    @supplier.destroy
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_supplier
@@ -46,6 +41,6 @@ class SuppliersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def supplier_params
-      params.require(:supplier).permit(:name, :source)
+      params.require(:supplier).permit(:name)
     end
 end

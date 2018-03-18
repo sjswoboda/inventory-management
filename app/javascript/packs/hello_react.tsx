@@ -7,13 +7,21 @@ import * as ReactDOM from 'react-dom';
 
 interface HelloProps { name: string; }
 
-const Hello = (props: HelloProps) => (
-  <div>Whoa whoa, we got {props.name}!</div>
-)
-
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <HelloComponent name="React" />,
     document.body.appendChild(document.createElement('div')),
   )
 })
+
+export class HelloComponent extends React.Component<HelloProps, {}> {
+  constructor(props: HelloProps){
+    super(props);
+  }
+
+  public render() {
+    return(
+      <div>Whoa whoa, we got {this.props.name}!</div>
+    )
+  }
+}
