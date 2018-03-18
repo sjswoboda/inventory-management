@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'main#index'
   resources :item_variations
   resources :variation_attributes
   resources :attributes
