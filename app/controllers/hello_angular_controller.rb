@@ -1,4 +1,4 @@
-class HelloAngularController < ApplicationController
+class HelloAngularController < ActionController::Base
   def index
   end
 end
