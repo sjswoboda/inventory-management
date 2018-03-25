@@ -1,17 +1,19 @@
-import { SupplierComponent } from './supplier.component';
-import { ApiConfiguration } from './../config';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SupplierRoutingModule } from './supplier.routing';
-import { SupplierDataService } from './supplier.data.service';
-import { SuppliersResolver } from './suppliers.resolver';
+import { NgModule } from '@angular/core';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { ApiConfiguration } from './../config';
+import { SupplierComponent } from './supplier.component';
+import { SupplierDataService } from './supplier.data.service';
+import { SupplierRoutingModule } from './supplier.routing';
+import { SuppliersResolver } from './suppliers.resolver';
 
 @NgModule({
     imports: [
         CommonModule,
         SupplierRoutingModule,
-        MatTableModule
+        MatTableModule,
+        MatSortModule
     ],
     declarations: [ SupplierComponent ],
     providers: [

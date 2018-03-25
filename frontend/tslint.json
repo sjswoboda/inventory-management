@@ -73,6 +73,8 @@
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
+    "no-unused-variable": true,
+    "no-duplicate-imports": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
@@ -83,6 +85,7 @@
       "check-else",
       "check-whitespace"
     ],
+    "ordered-imports": true,
     "prefer-const": true,
     "quotemark": [
       true,

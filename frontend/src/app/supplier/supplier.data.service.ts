@@ -1,11 +1,11 @@
-import { GetSuppliersResponse } from './supplier.data.response';
-import { ApiConfiguration } from '../config';
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Supplier } from './supplier';
+import { Injectable } from '@angular/core';
+import { map } from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import { map as rxmap } from 'rxjs/operators';
-import { map } from 'lodash';
+import { ApiConfiguration } from '../config';
+import { Supplier } from './supplier';
+import { GetSuppliersResponse } from './supplier.data.response';
 
 @Injectable()
 export class SupplierDataService {
@@ -19,8 +19,8 @@ export class SupplierDataService {
     }
 
     public suppliers(): Observable<Supplier[]> {
-        const mapper = (y: GetSuppliersResponse) => new Supplier(y);
+        const mapper = (supplier: GetSuppliersResponse) => new Supplier(supplier);
         return this._http.get<GetSuppliersResponse[]>(this._config.suppliers)
-            .pipe(rxmap(x => (map(x, mapper))));
+            .pipe(rxmap(suppliers => (map(suppliers, mapper))));
     }
 }

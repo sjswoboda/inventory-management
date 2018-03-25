@@ -1,5 +1,5 @@
-import { Supplier } from './supplier';
 import { sumBy } from 'lodash';
+import { Supplier } from './supplier';
 
 export class Suppliers {
     private _list: Supplier[];
