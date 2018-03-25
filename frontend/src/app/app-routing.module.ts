@@ -4,8 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'suppliers',
         loadChildren: './supplier/supplier.module#SupplierModule'
+    },
+    {
+        path: '',
+        loadChildren: './invoice/invoice.module#InvoiceModule'
     }
 ];
 

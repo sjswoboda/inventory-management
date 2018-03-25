@@ -12,4 +12,8 @@ export class ApiConfiguration {
     public get suppliers() {
         return `${this.baseUrl}/suppliers`;
     }
+
+    public get invoices() {
+        return `${this.baseUrl}/invoices`;
+    }
 }

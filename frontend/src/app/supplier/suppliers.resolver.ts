@@ -1,7 +1,7 @@
-import { SupplierDataService } from './supplier.data.service';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Supplier } from './supplier';
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Supplier } from './supplier';
+import { SupplierDataService } from './supplier.data.service';
 
 export class SuppliersResolver implements Resolve<Supplier[]> {
     private readonly _dataService: SupplierDataService;

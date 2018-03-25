@@ -15,7 +15,7 @@ export class Supplier {
         if (response) {
             this._id = response.id;
             this.name = response.name;
-            this.amount = response.amount;
+            this.amount = response.billed_amount;
             this.pending_amount = response.pending_amount;
         }
     }
