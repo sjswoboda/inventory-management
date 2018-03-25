@@ -4,8 +4,8 @@ class InvoicesController < ApplicationController
 
   # GET /suppliers/1/invoices
   def index
-    @invoices = Invoice.all.where('supplier_id = ?', @supplier)
-
+    @invoices = Invoice.all
+    @invoices = @invoices.where('supplier_id = ?', @supplier) unless @supplier.nil?
     render json: @invoices
   end
 
@@ -37,7 +37,7 @@ class InvoicesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_supplier
-      @supplier = Supplier.find(params[:supplier_id])
+      @supplier = Supplier.find(params[:supplier_id]) unless !params[:supplier_id].present?
     end
 
     def set_invoice
