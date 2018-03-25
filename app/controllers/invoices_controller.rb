@@ -1,9 +1,10 @@
 class InvoicesController < ApplicationController
+  before_action :set_supplier, only: [:index, :create]
   before_action :set_invoice, only: [:show, :update, :destroy]
 
-  # GET /invoices
+  # GET /suppliers/1/invoices
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.all.where('supplier_id = ?', @supplier)
 
     render json: @invoices
   end
@@ -13,7 +14,7 @@ class InvoicesController < ApplicationController
     render json: @invoice
   end
 
-  # POST /invoices
+  # POST /suppliers/1/invoices
   def create
     @invoice = Invoice.new(invoice_params)
 
@@ -33,13 +34,12 @@ class InvoicesController < ApplicationController
     end
   end
 
-  # DELETE /invoices/1
-  def destroy
-    @invoice.destroy
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_supplier
+      @supplier = Supplier.find(params[:supplier_id])
+    end
+
     def set_invoice
       @invoice = Invoice.find(params[:id])
     end
