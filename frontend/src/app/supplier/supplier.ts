@@ -8,11 +8,15 @@ export class Supplier {
     }
 
     public name: string;
+    public amount: number;
+    public pending_amount: number;
 
     constructor(response?: GetSuppliersResponse) {
         if (response) {
             this._id = response.id;
             this.name = response.name;
+            this.amount = response.amount;
+            this.pending_amount = response.pending_amount;
         }
     }
 

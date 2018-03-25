@@ -1,6 +1,14 @@
-There are {{suppliers.length}} suppliers:
-<ul>
-    <li *ngFor="let supplier of suppliers">
-        {{supplier}}
-    </li>
-</ul>
+You have spent {{suppliers.totalSpent | currency}} and are waiting on shipment of {{suppliers.totalPending | currency}}.
+
+<mat-table [dataSource]="suppliers.list" matSort>
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let supplier">{{supplier.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>$ Spent</mat-header-cell>
+        <mat-cell *matCellDef="let supplier">{{supplier.amount | currency}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="['name', 'amount']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['name', 'amount']"></mat-row>
+</mat-table>
