@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :invoice_transactions
   resources :brands
   resources :line_items
-  resources :invoices
+  resources :invoices do
+    resources :line_items, shallow: true
+  end
   resources :items
   resources :classifications
   resources :suppliers do

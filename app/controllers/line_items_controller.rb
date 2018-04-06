@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  before_action :set_invoice, only: [:index, :create]
   before_action :set_line_item, only: [:show, :update, :destroy]
 
   # GET /line_items
@@ -40,6 +41,10 @@ class LineItemsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_invoice
+      @invoice = Invoice.find(params[:invoice_id])
+    end
+
     def set_line_item
       @line_item = LineItem.find(params[:id])
     end
