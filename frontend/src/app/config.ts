@@ -16,4 +16,8 @@ export class ApiConfiguration {
     public get invoices() {
         return `${this.baseUrl}/invoices`;
     }
+
+    public invoice(id: number) {
+        return `${this.baseUrl}/invoices/${id}`;
+    }
 }

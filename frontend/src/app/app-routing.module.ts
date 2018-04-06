@@ -8,7 +8,7 @@ const routes: Routes = [
         loadChildren: './supplier/supplier.module#SupplierModule'
     },
     {
-        path: '',
+        path: 'invoices',
         loadChildren: './invoice/invoice.module#InvoiceModule'
     }
 ];

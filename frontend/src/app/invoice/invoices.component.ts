@@ -8,17 +8,18 @@ import { Invoice } from './invoice';
     templateUrl: './invoices.component.html'
 })
 export class InvoicesComponent implements OnInit {
+    private readonly _route: ActivatedRoute;
     private _invoices: Invoice[];
     public get invoices(): Invoice[] {
         return this._invoices;
     }
 
-    constructor(private route: ActivatedRoute) {
-
+    constructor(route: ActivatedRoute) {
+        this._route = route;
     }
 
     ngOnInit(): void {
-        this.route.data.subscribe((data: { invoices: Invoice[] }) => {
+        this._route.data.subscribe((data: { invoices: Invoice[] }) => {
             this._invoices = data.invoices;
         });
     }
