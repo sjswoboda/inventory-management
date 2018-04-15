@@ -1,4 +1,5 @@
-import { GetLineItemsResponse } from './line-item.data.response';
+import { GetLineItemsResponse } from './data.response';
+
 export class LineItem {
     private _id: number;
 

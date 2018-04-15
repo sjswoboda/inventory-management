@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InvoiceComponent } from './invoice.component';
-import { InvoiceResolver } from './invoice.resolver';
-import { InvoicesComponent } from './invoices.component';
-import { InvoicesResolver } from './invoices.resolver';
+import { InvoiceComponent } from './detail.component';
+import { InvoiceResolver } from './detail.resolver';
+import { InvoicesComponent } from './index.component';
+import { InvoicesResolver } from './index.resolver';
 
 const routes: Routes = [
     {

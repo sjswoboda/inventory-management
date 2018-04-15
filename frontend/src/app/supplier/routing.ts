@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SupplierComponent } from './supplier.component';
-import { SuppliersResolver } from './suppliers.resolver';
+import { SuppliersComponent } from './index.component';
+import { SuppliersResolver } from './index.resolver';
 
 const routes: Routes = [
     {
         path: '',
-        component: SupplierComponent,
+        component: SuppliersComponent,
         resolve: {
             suppliers: SuppliersResolver
         }

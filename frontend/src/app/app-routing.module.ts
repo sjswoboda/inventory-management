@@ -5,16 +5,16 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
     {
         path: 'suppliers',
-        loadChildren: './supplier/supplier.module#SupplierModule'
+        loadChildren: './supplier/module#SupplierModule'
     },
     {
         path: 'invoices',
-        loadChildren: './invoice/invoice.module#InvoiceModule'
+        loadChildren: './invoice/module#InvoiceModule'
     }
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routes, { enableTracing: false}) ],
+    imports: [ RouterModule.forRoot(routes, { enableTracing: true }) ],
     exports: [ RouterModule ]
 })
 export class AppRoutingModule {}

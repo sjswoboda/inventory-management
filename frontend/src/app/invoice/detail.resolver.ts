@@ -1,7 +1,7 @@
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { InvoiceDataService } from './data.service';
 import { Invoice } from './invoice';
-import { InvoiceDataService } from './invoice.data.service';
 
 export class InvoiceResolver implements Resolve<Invoice> {
     private readonly _dataService: InvoiceDataService;

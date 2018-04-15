@@ -4,8 +4,8 @@ import { map } from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import { map as rxmap } from 'rxjs/operators';
 import { ApiConfiguration } from '../config';
+import { GetSuppliersResponse } from './data.response';
 import { Supplier } from './supplier';
-import { GetSuppliersResponse } from './supplier.data.response';
 
 @Injectable()
 export class SupplierDataService {

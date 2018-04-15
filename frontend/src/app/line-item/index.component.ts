@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LineItemDataService } from './data.service';
 import { LineItem } from './line-item';
-import { LineItemDataService } from './line-item.data.service';
 
 @Component({
-    selector: 'app-line-item',
-    templateUrl: './line-item.component.html'
+    selector: 'app-line-items',
+    templateUrl: './index.component.html'
 })
-export class LineItemComponent implements OnInit {
+export class LineItemsComponent implements OnInit {
     private readonly _dataService: LineItemDataService;
     private _lineItems: LineItem[];
     public get lineItems(): LineItem[] {

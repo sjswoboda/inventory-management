@@ -4,8 +4,8 @@ import { map } from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import { map as rxmap } from 'rxjs/operators';
 import { ApiConfiguration } from '../config';
+import { GetInvoicesResponse } from './data.response';
 import { Invoice } from './invoice';
-import { GetInvoicesResponse } from './invoice.data.response';
 
 @Injectable()
 export class InvoiceDataService {

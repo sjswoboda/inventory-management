@@ -4,9 +4,9 @@ import { Supplier } from './supplier';
 import { Suppliers } from './suppliers';
 
 @Component({
-    templateUrl: './supplier.component.html'
+    templateUrl: './index.component.html'
 })
-export class SupplierComponent implements OnInit {
+export class SuppliersComponent implements OnInit {
     private _suppliers: Suppliers;
     public get suppliers(): Suppliers {
         return this._suppliers;

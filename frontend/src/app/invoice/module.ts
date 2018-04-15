@@ -2,14 +2,14 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { LineItemModule } from '../line-item/line-item.module';
+import { LineItemModule } from '../line-item/module';
 import { ApiConfiguration } from './../config';
-import { InvoiceComponent } from './invoice.component';
-import { InvoiceDataService } from './invoice.data.service';
-import { InvoiceResolver } from './invoice.resolver';
-import { InvoiceRoutingModule } from './invoice.routing';
-import { InvoicesComponent } from './invoices.component';
-import { InvoicesResolver } from './invoices.resolver';
+import { InvoiceDataService } from './data.service';
+import { InvoiceComponent } from './detail.component';
+import { InvoiceResolver } from './detail.resolver';
+import { InvoicesComponent } from './index.component';
+import { InvoicesResolver } from './index.resolver';
+import { InvoiceRoutingModule } from './routing';
 
 @NgModule({
     imports: [

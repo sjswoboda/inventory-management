@@ -1,4 +1,4 @@
-import { GetSuppliersResponse } from './supplier.data.response';
+import { GetSuppliersResponse } from './data.response';
 
 export class Supplier {
     private _id: number;

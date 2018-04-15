@@ -4,7 +4,7 @@ import { Invoice } from './invoice';
 
 
 @Component({
-    templateUrl: './invoice.component.html'
+    templateUrl: './detail.component.html'
 })
 export class InvoiceComponent implements OnInit {
     private readonly _route: ActivatedRoute;

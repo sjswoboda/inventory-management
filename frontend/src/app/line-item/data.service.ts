@@ -4,8 +4,8 @@ import { map } from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import { map as rxmap } from 'rxjs/operators';
 import { ApiConfiguration } from '../config';
+import { GetLineItemsResponse } from './data.response';
 import { LineItem } from './line-item';
-import { GetLineItemsResponse } from './line-item.data.response';
 
 @Injectable()
 export class LineItemDataService {

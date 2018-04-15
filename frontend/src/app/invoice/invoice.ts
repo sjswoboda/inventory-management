@@ -1,5 +1,5 @@
 import { assign, forOwn, has, keys } from 'lodash';
-import { GetInvoicesResponse } from './invoice.data.response';
+import { GetInvoicesResponse } from './data.response';
 
 export class Invoice {
     private _id: number;
