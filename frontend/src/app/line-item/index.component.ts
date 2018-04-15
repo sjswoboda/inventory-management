@@ -9,7 +9,7 @@ import { LineItem } from './line-item';
 })
 export class LineItemsComponent implements OnInit {
     private readonly _dataService: LineItemDataService;
-    private _lineItems: LineItem[];
+    private _lineItems: LineItem[] = [];
     public get lineItems(): LineItem[] {
         return this._lineItems;
     }
