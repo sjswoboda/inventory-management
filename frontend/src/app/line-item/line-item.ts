@@ -16,7 +16,17 @@ export class LineItem {
 
     constructor(response?: GetLineItemsResponse) {
         if (response) {
+            this._id = response.id;
             this.invoice_id = response.invoice_id;
+            this.description = response.description;
+            this.quantity = response.quantity;
+            this.lot_size = response.lot_size;
+            this.discount_amount = response.discount_amount;
+            this.shipping_amount = response.shipping_amount;
         }
+    }
+
+    public toString() {
+        return this.description;
     }
 }

@@ -1,0 +1,8 @@
+<ul *ngIf="lineItems.length > 0">
+    <li *ngFor="let lineItem of lineItems"> 
+        {{lineItem}}
+    </li>
+</ul>
+<p *ngIf="lineItems.length === 0">
+    There are no line items.
+</p>

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { LineItemModule } from '../line-item/line-item.module';
 import { ApiConfiguration } from './../config';
 import { InvoiceComponent } from './invoice.component';
 import { InvoiceDataService } from './invoice.data.service';
@@ -14,6 +15,7 @@ import { InvoicesResolver } from './invoices.resolver';
     imports: [
         CommonModule,
         InvoiceRoutingModule,
+        LineItemModule,
         MatTableModule,
         MatSortModule
     ],

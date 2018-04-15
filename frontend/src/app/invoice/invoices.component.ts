@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Invoice } from './invoice';
 
-
 @Component({
     selector: 'app-invoices',
     templateUrl: './invoices.component.html'
