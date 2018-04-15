@@ -1,8 +1,28 @@
-<ul *ngIf="lineItems.length > 0">
-    <li *ngFor="let lineItem of lineItems"> 
-        {{lineItem}}
-    </li>
-</ul>
-<p *ngIf="lineItems.length === 0">
-    There are no line items.
-</p>
+<mat-table [dataSource]="lineItems" matSort>
+    <ng-container matColumnDef="quantity">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
+        <mat-cell *matCellDef="let lineItem">{{lineItem.quantity}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lotSize">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Lot Size</mat-header-cell>
+        <mat-cell *matCellDef="let lineItem">{{lineItem.lotSize}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+        <mat-cell *matCellDef="let lineItem">{{lineItem.description}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="discount_amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>$ Discount</mat-header-cell>
+        <mat-cell *matCellDef="let lineItem">{{lineItem.discount_amount | currency}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="shipping_amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>$ Shipping</mat-header-cell>
+        <mat-cell *matCellDef="let lineItem">{{lineItem.shipping_amount | currency}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="invoiced_amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>$ Invoiced</mat-header-cell>
+        <mat-cell *matCellDef="let lineItem">{{lineItem.invoiced_amount | currency}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="['quantity', 'description', 'lotSize', 'discount_amount', 'shipping_amount', 'invoiced_amount']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['quantity', 'description', 'lotSize', 'discount_amount', 'shipping_amount', 'invoiced_amount']"></mat-row>
+</mat-table>
