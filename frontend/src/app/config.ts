@@ -18,6 +18,10 @@ export class ApiConfiguration {
     }
 
     public invoice(id: number) {
-        return `${this.baseUrl}/invoices/${id}`;
+        return `${this.invoices}/${id}`;
+    }
+
+    public line_items(invoice_id: number) {
+        return `${this.invoice(invoice_id)}/line_items`;
     }
 }
