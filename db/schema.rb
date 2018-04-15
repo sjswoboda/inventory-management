@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315004325) do
+ActiveRecord::Schema.define(version: 2018_03_15_004325) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "attributes", force: :cascade do |t|
     t.string "name", null: false
@@ -39,10 +42,10 @@ ActiveRecord::Schema.define(version: 20180315004325) do
   end
 
   create_table "invoice_transactions", force: :cascade do |t|
-    t.integer "invoice_id", null: false
-    t.integer "invoice_transaction_type_id", null: false
+    t.bigint "invoice_id", null: false
+    t.bigint "invoice_transaction_type_id", null: false
     t.decimal "amount", null: false
-    t.date "posted_date", default: "2018-03-14", null: false
+    t.date "posted_date", default: "2018-04-15", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["invoice_id"], name: "index_invoice_transactions_on_invoice_id"
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20180315004325) do
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.integer "supplier_id", null: false
+    t.bigint "supplier_id", null: false
     t.string "order_number"
     t.datetime "order_date", null: false
     t.datetime "order_shipped_date"
@@ -63,9 +66,16 @@ ActiveRecord::Schema.define(version: 20180315004325) do
     t.index ["supplier_id"], name: "index_invoices_on_supplier_id"
   end
 
+  create_table "item_variation_attributes", id: false, force: :cascade do |t|
+    t.bigint "item_variations_id", null: false
+    t.bigint "attribute_id", null: false
+    t.string "value", null: false
+    t.index ["attribute_id"], name: "index_item_variation_attributes_on_attribute_id"
+    t.index ["item_variations_id"], name: "index_item_variation_attributes_on_item_variations_id"
+  end
+
   create_table "item_variations", force: :cascade do |t|
-    t.integer "item_id", null: false
-    t.integer "variation_set_id", null: false
+    t.bigint "item_id", null: false
     t.string "name"
     t.boolean "is_default", default: false, null: false
     t.datetime "created_at", null: false
@@ -74,8 +84,8 @@ ActiveRecord::Schema.define(version: 20180315004325) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "classification_id"
-    t.integer "brands_id"
+    t.bigint "classification_id"
+    t.bigint "brands_id"
     t.string "name", null: false
     t.string "description"
     t.datetime "created_at", null: false
@@ -85,7 +95,7 @@ ActiveRecord::Schema.define(version: 20180315004325) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer "invoice_id", null: false
+    t.bigint "invoice_id", null: false
     t.string "description"
     t.integer "quantity", null: false
     t.integer "lot_size", default: 1
@@ -104,12 +114,13 @@ ActiveRecord::Schema.define(version: 20180315004325) do
     t.index ["name"], name: "index_suppliers_on_name", unique: true
   end
 
-  create_table "variation_attributes", id: false, force: :cascade do |t|
-    t.integer "variation_set_id", null: false
-    t.integer "attribute_id", null: false
-    t.string "value", null: false
-    t.index ["attribute_id"], name: "index_variation_attributes_on_attribute_id"
-    t.index ["variation_set_id"], name: "index_variation_attributes_on_variation_set_id"
-  end
-
+  add_foreign_key "invoice_transactions", "invoice_transaction_types"
+  add_foreign_key "invoice_transactions", "invoices"
+  add_foreign_key "invoices", "suppliers"
+  add_foreign_key "item_variation_attributes", "attributes"
+  add_foreign_key "item_variation_attributes", "item_variations", column: "item_variations_id"
+  add_foreign_key "item_variations", "items"
+  add_foreign_key "items", "brands", column: "brands_id"
+  add_foreign_key "items", "classifications"
+  add_foreign_key "line_items", "invoices"
 end
