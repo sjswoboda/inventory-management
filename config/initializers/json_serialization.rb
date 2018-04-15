@@ -7,7 +7,7 @@ class BigDecimal
   end
 end
 
-class Numeric
+class Decimal
   def as_json(*)
     to_f
   end
