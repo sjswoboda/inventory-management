@@ -8,7 +8,7 @@ class Invoice < ApplicationRecord
             suppliers.name as supplier_name,
             sum(invoice_transactions.amount) as billed_amount')
         .left_joins(:supplier, :invoice_transactions)
-        .group(:id)
+        .group(:id, 'suppliers.name')
         .order(order_date: :desc)
     end
 
