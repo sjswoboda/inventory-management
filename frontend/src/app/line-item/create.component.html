@@ -3,34 +3,37 @@
     <small>Supplier {{invoice.supplier_name}} for invoice {{invoice.order_number}}</small>
 </h2>
 <mat-dialog-content>
-    <div fxLayout="column" fxLayoutAlign="space-around start">
-        <div fxLayout="row" fxLayoutAlign="start center">
-            <mat-form-field fxFlex="10">
+    <form fxLayout="column" fxLayoutAlign="space-around start">
+        
+        <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
+            <mat-form-field fxFlex="20">
                 <input type="number" matInput placeholder="Quantity" [(ngModel)]="model.quantity" />
             </mat-form-field>
-            <mat-form-field fxFlex="10">
+            <mat-form-field fxFlex="20">
                 <input type="number" matInput placeholder="Lot Size" [(ngModel)]="model.lot_size" />
             </mat-form-field>
-            <mat-form-field fxFlex="80">
+            <mat-form-field fxFlex="60">
                 <input type="text" matInput placeholder="Description" [(ngModel)]="model.description" />
             </mat-form-field>
         </div>
-        <mat-form-field>
-            <input type="number" matInput placeholder="Discount Amount" [(ngModel)]="model.discount_amount" />
-            <span matPrefix>$&nbsp;</span>
-        </mat-form-field>
-        <mat-form-field>
-            <input type="number" matInput placeholder="Shipping Amount" [(ngModel)]="model.shipping_amount" />
-            <span matPrefix>$&nbsp;</span>
-        </mat-form-field>
-        <mat-form-field>
-            <input type="number" matInput placeholder="Invoiced Amount" [(ngModel)]="model.invoiced_amount" />
-            <span matPrefix>$&nbsp;</span>
-        </mat-form-field>
-    </div>
+
+        <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
+            <mat-form-field fxFlex="30">
+                <input type="number" matInput placeholder="Discount Amount" [(ngModel)]="model.discount_amount" />
+                <span matPrefix>$&nbsp;</span>
+            </mat-form-field>
+            <mat-form-field fxFlex="30">
+                <input type="number" matInput placeholder="Shipping Amount" [(ngModel)]="model.shipping_amount" />
+                <span matPrefix>$&nbsp;</span>
+            </mat-form-field>
+            <mat-form-field fxFlex="40">
+                <input type="number" matInput placeholder="Invoiced Amount" [(ngModel)]="model.invoiced_amount" />
+                <span matPrefix>$&nbsp;</span>
+            </mat-form-field>
+        </div>
+    </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>No</button>
-  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-  <button mat-button (click)="save()">Yes</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="save()">Save</button>
 </mat-dialog-actions>
