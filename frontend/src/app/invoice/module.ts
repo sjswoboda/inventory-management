@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { LineItemModule } from '../line-item/module';
 import { ApiConfiguration } from './../config';
 import { InvoiceDataService } from './data.service';
@@ -15,9 +14,8 @@ import { InvoiceRoutingModule } from './routing';
     imports: [
         CommonModule,
         InvoiceRoutingModule,
-        LineItemModule,
-        MatTableModule,
-        MatSortModule
+        NgxDatatableModule,
+        LineItemModule
     ],
     declarations: [
         InvoiceComponent,

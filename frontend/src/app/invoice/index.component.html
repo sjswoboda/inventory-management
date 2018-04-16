@@ -1,17 +1,23 @@
-<mat-table [dataSource]="invoices" matSort>
-    <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-        <mat-cell *matCellDef="let invoice">
-            {{invoice.supplier_name}}<br />
-            <small class="muted">{{invoice.order_number}}</small>
-        </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="amount">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>$ Spent</mat-header-cell>
-        <mat-cell *matCellDef="let invoice">
-            {{invoice.billed_amount | currency}}
-        </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="['name', 'amount']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['name', 'amount']"></mat-row>
-</mat-table>
+<ngx-datatable 
+    class="material"
+    [columnMode]="'flex'"
+    [rowHeight]="'auto'"
+    [rows]="invoices">
+    <ngx-datatable-column name="name" [flexGrow]="2">
+        <ng-template ngx-datatable-header-template>
+            Invoice
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.supplier_name}}<br />
+            <small class="muted">{{row.order_number}}</small>
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="amount" [flexGrow]="1">
+        <ng-template ngx-datatable-header-template>
+           $ Spent
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.billed_amount | currency}}
+        </ng-template>
+    </ngx-datatable-column>
+</ngx-datatable>
