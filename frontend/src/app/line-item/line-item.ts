@@ -40,6 +40,10 @@ export class LineItem {
         };
     }
 
+    public toUpdate() {
+        return this.toCreate();
+    }
+
     public toString() {
         return this.description;
     }

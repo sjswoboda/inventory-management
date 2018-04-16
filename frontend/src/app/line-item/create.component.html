@@ -3,8 +3,7 @@
     <small>Supplier {{invoice.supplier_name}} for invoice {{invoice.order_number}}</small>
 </h2>
 <mat-dialog-content>
-    <form fxLayout="column" fxLayoutAlign="space-around start">
-        
+    <div fxLayout="column" fxLayoutAlign="space-around start">
         <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
             <mat-form-field fxFlex="20">
                 <input type="number" matInput placeholder="Quantity" [(ngModel)]="model.quantity" />
@@ -31,7 +30,7 @@
                 <span matPrefix>$&nbsp;</span>
             </mat-form-field>
         </div>
-    </form>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>

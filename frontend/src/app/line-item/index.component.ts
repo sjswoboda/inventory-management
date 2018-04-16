@@ -6,6 +6,7 @@ import { Invoice } from '../invoice/invoice';
 import { LineItemCreateComponent } from './create.component';
 import { LineItemDataService } from './data.service';
 import { LineItem } from './line-item';
+import { LineItemUpdateComponent } from './update.component';
 
 @Component({
     selector: 'app-line-items',
@@ -44,6 +45,25 @@ export class LineItemsComponent implements OnInit {
                 this.getLineItems();
             }
         });
+    }
+
+    public updateLineItem(lineItem) {
+        const updateDialogRef = this._dialog.open(LineItemUpdateComponent, {
+            data: {
+                invoice: this.invoice,
+                lineItem
+            }
+        });
+        updateDialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.getLineItems();
+            }
+        });
+    }
+
+    public onSelect($event: { selected: LineItem[] }) {
+        const lineItem = $event.selected[0];
+        this.updateLineItem(lineItem);
     }
 
     private getLineItems() {

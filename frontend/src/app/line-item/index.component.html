@@ -4,6 +4,8 @@
     [columnMode]="'flex'"
     [rowHeight]="60"
     [headerHeight]="50"
+    [selectionType]="'single'"
+    (select)='onSelect($event)'
     [rows]="lineItems | async">
 
     <ngx-datatable-column name="quantity" [flexGrow]="1">

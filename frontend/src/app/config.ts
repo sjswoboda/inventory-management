@@ -24,4 +24,8 @@ export class ApiConfiguration {
     public line_items(invoice_id: number) {
         return `${this.invoice(invoice_id)}/line_items`;
     }
+
+    public line_item(id: number) {
+        return `${this.baseUrl}/line_items/${id}`;
+    }
 }
