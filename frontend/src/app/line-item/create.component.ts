@@ -1,6 +1,5 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
 import { Invoice } from '../invoice/invoice';
 import { LineItemDataService } from './data.service';
 import { LineItem } from './line-item';

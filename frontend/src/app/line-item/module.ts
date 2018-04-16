@@ -12,6 +12,7 @@ import { LineItemCreateComponent } from './create.component';
 import { LineItemDataService } from './data.service';
 import { LineItemComponent } from './detail.component';
 import { LineItemsComponent } from './index.component';
+import { LineItemUpdateComponent } from './update.component';
 
 @NgModule({
     imports: [
@@ -27,7 +28,8 @@ import { LineItemsComponent } from './index.component';
     declarations: [
         LineItemsComponent,
         LineItemComponent,
-        LineItemCreateComponent
+        LineItemCreateComponent,
+        LineItemUpdateComponent
     ],
     providers: [
         ApiConfiguration,
@@ -37,7 +39,8 @@ import { LineItemsComponent } from './index.component';
         LineItemsComponent
     ],
     entryComponents: [
-        LineItemCreateComponent
+        LineItemCreateComponent,
+        LineItemUpdateComponent
     ]
 })
 export class LineItemModule {}

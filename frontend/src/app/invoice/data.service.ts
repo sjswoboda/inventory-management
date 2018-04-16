@@ -25,7 +25,6 @@ export class InvoiceDataService {
     }
 
     public invoice(id: number): Observable<Invoice> {
-        const mapper = (invoice: GetInvoicesResponse) => new Invoice(invoice);
         return this._http.get<GetInvoicesResponse>(this._config.invoice(id))
             .pipe(rxmap(invoice => new Invoice(invoice)));
     }

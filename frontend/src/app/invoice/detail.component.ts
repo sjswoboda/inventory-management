@@ -17,7 +17,7 @@ export class InvoiceComponent implements OnInit {
         this._route = route;
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this._route.data.subscribe((data: { invoice: Invoice }) => {
             this._invoice = data.invoice;
         });

@@ -1,4 +1,3 @@
-import { assign, forOwn, has, keys } from 'lodash';
 import { GetInvoicesResponse } from './data.response';
 
 export class Invoice {

@@ -16,7 +16,7 @@ export class SuppliersComponent implements OnInit {
 
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.route.data.subscribe((data: { suppliers: Supplier[] }) => {
             this._suppliers = new Suppliers(data.suppliers);
         });

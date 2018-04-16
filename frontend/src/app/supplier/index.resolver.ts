@@ -9,7 +9,7 @@ export class SuppliersResolver implements Resolve<Supplier[]> {
         this._dataService = data;
     }
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Supplier[]> {
+    public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Supplier[]> {
         return this._dataService.suppliers();
     }
 }

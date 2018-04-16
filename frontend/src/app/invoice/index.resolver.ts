@@ -9,7 +9,7 @@ export class InvoicesResolver implements Resolve<Invoice[]> {
         this._dataService = data;
     }
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Invoice[]> {
+    public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Invoice[]> {
         return this._dataService.invoices();
     }
 }

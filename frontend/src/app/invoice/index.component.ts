@@ -19,13 +19,13 @@ export class InvoicesComponent implements OnInit {
         this._route = route;
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this._route.data.subscribe((data: { invoices: Invoice[] }) => {
             this._invoices = data.invoices;
         });
     }
 
-    onSelect($event: { selected: Invoice[] }) {
+    public onSelect($event: { selected: Invoice[] }) {
         if ($event.selected && $event.selected.length > 0) {
             this._router.navigate(['/invoices', $event.selected[0].id]);
         }

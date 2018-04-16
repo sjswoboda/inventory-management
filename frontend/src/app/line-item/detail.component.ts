@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { LineItemDataService } from './data.service';
 import { LineItem } from './line-item';
 
