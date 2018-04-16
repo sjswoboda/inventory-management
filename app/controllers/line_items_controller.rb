@@ -16,7 +16,7 @@ class LineItemsController < ApplicationController
 
   # POST /line_items
   def create
-    @line_item = LineItem.new(line_item_params)
+    @line_item = @invoice.add_line_item(line_item_params)
 
     if @line_item.save
       render json: @line_item, status: :created, location: @line_item
@@ -51,6 +51,12 @@ class LineItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def line_item_params
-      params.require(:line_item).permit(:description, :quantity, :lotSize, :discount_amount, :shipping_amount, :invoiced_amount, :decimal, :billed_amount, :decimal)
+      params.require(:line_item).permit(
+        :description,
+        :quantity,
+        :lot_size,
+        :discount_amount,
+        :shipping_amount,
+        :invoiced_amount)
     end
 end

@@ -1,28 +1,39 @@
-<mat-table [dataSource]="lineItems" matSort>
-    <ng-container matColumnDef="quantity">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
-        <mat-cell *matCellDef="let lineItem">{{lineItem.quantity}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="lotSize">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Lot Size</mat-header-cell>
-        <mat-cell *matCellDef="let lineItem">{{lineItem.lotSize}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="description">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
-        <mat-cell *matCellDef="let lineItem">{{lineItem.description}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="discount_amount">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>$ Discount</mat-header-cell>
-        <mat-cell *matCellDef="let lineItem">{{lineItem.discount_amount | currency}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="shipping_amount">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>$ Shipping</mat-header-cell>
-        <mat-cell *matCellDef="let lineItem">{{lineItem.shipping_amount | currency}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="invoiced_amount">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>$ Invoiced</mat-header-cell>
-        <mat-cell *matCellDef="let lineItem">{{lineItem.invoiced_amount | currency}}</mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="['quantity', 'description', 'lotSize', 'discount_amount', 'shipping_amount', 'invoiced_amount']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['quantity', 'description', 'lotSize', 'discount_amount', 'shipping_amount', 'invoiced_amount']"></mat-row>
-</mat-table>
+<button mat-button (click)="createLineItem()">Add Line Item</button>
+<ngx-datatable 
+    class="material"
+    [columnMode]="'flex'"
+    [rowHeight]="60"
+    [headerHeight]="50"
+    [rows]="lineItems | async">
+
+    <ngx-datatable-column name="quantity" [flexGrow]="1">
+        <ng-template ngx-datatable-header-template>
+            Quantity
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="lot_size" [flexGrow]="1">
+        <ng-template ngx-datatable-header-template>
+            Lot Size
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.lot_size}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="description" [flexGrow]="3">
+        <ng-template ngx-datatable-header-template>
+            Description
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="amount" [flexGrow]="2">
+        <ng-template ngx-datatable-header-template>
+            $$$
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.invoiced_amount | currency}}<br />
+            <small *ngIf="row.shipping_amount > 0">{{row.shipping_amount | currency}}</small>
+        </ng-template>
+    </ngx-datatable-column>
+</ngx-datatable>

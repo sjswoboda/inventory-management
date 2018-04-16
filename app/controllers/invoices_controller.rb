@@ -4,7 +4,7 @@ class InvoicesController < ApplicationController
 
   # GET /suppliers/1/invoices
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.invoice_summary
     @invoices = @invoices.where('supplier_id = ?', @supplier) unless @supplier.nil?
     render json: @invoices
   end

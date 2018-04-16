@@ -131,6 +131,12 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/flex-layout@^5.0.0-beta.14":
+  version "5.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-5.0.0-beta.14.tgz#300e1cba2ef1a70f43fe7ea68ea78267cb4241e4"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/forms@^5.2.0":
   version "5.2.9"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-5.2.9.tgz#12c45b3a02c398b354f09cc740d914cd904c0c9c"
@@ -205,6 +211,10 @@
     rxjs "^5.5.6"
     semver "^5.3.0"
     semver-intersect "^1.1.2"
+
+"@swimlane/ngx-datatable@^11.3.2":
+  version "11.3.2"
+  resolved "https://registry.yarnpkg.com/@swimlane/ngx-datatable/-/ngx-datatable-11.3.2.tgz#cefeda7f75a6f69394e4f8e05b197942584f054d"
 
 "@types/jasmine@*", "@types/jasmine@~2.8.3":
   version "2.8.6"

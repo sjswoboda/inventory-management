@@ -18,6 +18,10 @@ export class LineItemDataService {
         this._config = config;
     }
 
+    public create(lineItem: LineItem) {
+        return this._http.post(this._config.line_items(lineItem.invoice_id), lineItem.toCreate());
+    }
+
     public line_items(invoice_id: number): Observable<LineItem[]> {
         const mapper = (line_items: GetLineItemsResponse) => new LineItem(line_items);
         return this._http.get<GetLineItemsResponse[]>(this._config.line_items(invoice_id))
