@@ -2,7 +2,9 @@
     class="material"
     [columnMode]="'flex'"
     [rowHeight]="'auto'"
-    [rows]="invoices">
+    [rows]="invoices"
+    [selectionType]="'single'"
+    (select)='onSelect($event)'>
     <ngx-datatable-column name="name" [flexGrow]="2">
         <ng-template ngx-datatable-header-template>
             Invoice

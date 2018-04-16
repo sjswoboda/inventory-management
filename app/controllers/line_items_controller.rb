@@ -5,7 +5,7 @@ class LineItemsController < ApplicationController
   # GET /line_items
   def index
     @line_items = LineItem.all
-
+    @line_items = @line_items.where('invoice_id = ?', @invoice) unless @invoice.nil?
     render json: @line_items
   end
 

@@ -3,6 +3,12 @@ class Invoice < ApplicationRecord
     has_many :invoice_transactions
     has_many :line_items
 
+    def self.default_scope
+      select('invoices.*,
+          suppliers.name as supplier_name')
+      .left_joins(:supplier)
+    end
+
     def self.invoice_summary
       select('invoices.*,
           suppliers.name as supplier_name,
