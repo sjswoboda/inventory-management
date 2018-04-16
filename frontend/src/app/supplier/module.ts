@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ApiConfiguration } from './../config';
 import { SupplierDataService } from './data.service';
 import { SuppliersComponent } from './index.component';
@@ -12,8 +11,7 @@ import { SupplierRoutingModule } from './routing';
     imports: [
         CommonModule,
         SupplierRoutingModule,
-        MatTableModule,
-        MatSortModule
+        NgxDatatableModule
     ],
     declarations: [ SuppliersComponent ],
     providers: [
